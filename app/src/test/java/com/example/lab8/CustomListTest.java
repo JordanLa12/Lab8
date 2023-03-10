@@ -93,11 +93,9 @@ public class CustomListTest {
         City city1 = new City("Halifax", "NS");
         City city2 = new City("Saskatoon", "SK");
         list.add(city1);
-        assertEquals(2,list.countCities());
         list.add(city2);
         assertEquals(2, list.countCities());
         City city3 = new City("Charlottetown", "PE");
-        assertEquals(2, list.countCities());
         list.add(city3);
         assertEquals(3, list.countCities());
         list.delete(city1);
