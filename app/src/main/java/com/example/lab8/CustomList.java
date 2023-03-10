@@ -78,8 +78,22 @@ public class CustomList extends ArrayAdapter<City> {
     }
 
 
+    /**
+     * Check if a city is present in the list. If it does then remove it from the list, if not then throw an exception
+     * @param city a city to search for and delete
+     * @throws NoSuchElementException when trying to delete a city that does not exist in the list of cities
+     */
     public void delete(City city) {
-
+        boolean found = false;
+        for (int i = 0; i < cities.size(); i++) {
+            if (cities.get(i) == city) {
+                found = true;
+                cities.remove(i);
+            }
+        }
+        if (!found) {
+            throw new NoSuchElementException();
+        }
     }
 
 

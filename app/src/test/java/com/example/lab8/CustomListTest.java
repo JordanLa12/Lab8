@@ -1,6 +1,7 @@
 package com.example.lab8;
 
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -55,6 +56,7 @@ public class CustomListTest {
      * check if 2 cities are in the list
      * remove 1 city
      * check if there are now only one city in the list
+     * check if the city removed in not in the list
      */
 
     @Test
@@ -65,7 +67,8 @@ public class CustomListTest {
         City city2 = new City("Calgary", "AB");
         list.addCity(city);
         assertEquals(list.getCount(), 2);
-        list.remove(city1);
+        list.delete(city1);
         assertEquals(list.getCount(), 1);
+        assertFalse(list.hasCity(city1));
     }
 }
