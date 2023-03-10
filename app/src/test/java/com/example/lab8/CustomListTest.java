@@ -71,26 +71,37 @@ public class CustomListTest {
         list.addCity(city2);
         assertEquals(2, list.getCount());
         list.delete(city1);
-        assertEquals(1, list.getCount(),);
+        assertEquals(1, list.getCount());
         assertFalse(list.hasCity(city1));
         list.delete(city2);
         assertThrows( NoSuchElementException.class, () -> {
             list.delete(city1); });
     }
 
+    /**
+     * adds 2 cities to the list
+     * checks to see if amount of cities is 2
+     * add another city
+     * check the number of cities in the list, expect 3
+     * delete 2 cities
+     * check for 1 city in list
+     */
     @Test
-    public  void testCountCities(){
+    public void countCitiesTest(){
         list = MockCityList();
+        assertEquals(0, list.countCities());
         City city1 = new City("Halifax", "NS");
-        list.add(city1);
         City city2 = new City("Saskatoon", "SK");
+        list.add(city1);
+        assertEquals(2,list.countCities());
         list.add(city2);
         assertEquals(2, list.countCities());
-        list.add(new City("Charlottetown", "PE"));
+        City city3 = new City("Charlottetown", "PE");
+        assertEquals(2, list.countCities());
+        list.add(city3);
         assertEquals(3, list.countCities());
         list.delete(city1);
         list.delete(city2);
         assertEquals(1, list.countCities());
-
     }
 }
